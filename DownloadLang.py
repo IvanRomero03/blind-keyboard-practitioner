@@ -2,6 +2,7 @@ import os
 from consts import *
 from AudioUtil import TextToSpeech, DownloadAudioFile
 
+
 def isLangLoaded(lang: SUPPORTED_LANGS_TYPE_EXP) -> bool:
     '''
     isLangLoaded checks if a language is loaded

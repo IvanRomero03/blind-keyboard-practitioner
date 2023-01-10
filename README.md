@@ -47,3 +47,8 @@ pip install -r requirements.txt
 ```bash
 python main
 ```
+
+### For later
+```bash
+pipreqs --encoding=utf8 --force
+```

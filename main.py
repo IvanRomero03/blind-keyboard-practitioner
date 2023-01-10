@@ -4,6 +4,7 @@ from Callbacks import defineCallbacks
 from DownloadLang import isLangLoaded, loadLang
 import keyboard
 
+
 def main():
     # posible arguments to pass to the program:
     # -h, --help show this help message and exit

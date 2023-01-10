@@ -4,6 +4,7 @@ from AudioUtil import playAudio
 import os
 from time import sleep
 
+
 def individualCallback(x: keyboard.KeyboardEvent, wd: str, lang:SUPPORTED_LANGS_TYPE_EXP) -> None:
     if(x.name is not None and x.name in LANG_TO_QWERTY_KEYS[lang]):
         playAudio(f"{wd}\\{x.name}.mp3")
