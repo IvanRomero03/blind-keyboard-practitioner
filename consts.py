@@ -1,4 +1,4 @@
-from typing import List, Dict, Literal, Union, Tuple
+from typing import List, Literal, Union
 SUPPORTED_LANGS:List[str] = ["en", "es"]
 SUPPORTED_LANGS_TYPE_EXP = Union[Literal["en"], Literal["es"]]
 

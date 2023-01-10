@@ -1,9 +1,6 @@
 import requests
 import json
 from consts import *
-from typing import Literal, Union
-from pydub import AudioSegment
-from pydub.playback import play
 import playsound
 
 

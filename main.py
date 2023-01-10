@@ -1,5 +1,4 @@
 import argparse
-import os
 from consts import *
 from Callbacks import defineCallbacks
 from DownloadLang import isLangLoaded, loadLang
