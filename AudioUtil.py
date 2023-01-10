@@ -2,6 +2,9 @@ import requests
 import json
 from consts import *
 from typing import Literal, Union
+from pydub import AudioSegment
+from pydub.playback import play
+import playsound
 
 
 def TextToSpeech(inputText: str, lang:SUPPORTED_LANGS_TYPE_EXP = "es") -> str:
@@ -23,12 +26,19 @@ def TextToSpeech(inputText: str, lang:SUPPORTED_LANGS_TYPE_EXP = "es") -> str:
     T2S_API_URL = "https://ttsmp3.com/makemp3_new.php"
     parceText = inputText.replace(" ", "%20")
     payload = "msg=" + parceText + "&lang=" + LANG_REQ_CONFIG[lang] + "&source=ttsmp3"
-    "&lang=Matthew&source=ttsmp3"
+    payload = {
+        "msg": inputText,
+        "lang": LANG_REQ_CONFIG[lang],
+        "source": "ttsmp3"
+    }
+    #"&lang=Matthew&source=ttsmp3"
     headers = {
         'content-type': "application/x-www-form-urlencoded",
+        'encoding': "UTF-8",
     }
     response = requests.request(
         "POST", T2S_API_URL, data=payload, headers=headers)
+    #print(response.json())
     jsonResponse = json.loads(response.text)
     return jsonResponse["URL"]
 
@@ -55,3 +65,23 @@ def DownloadAudioFile(url: str, filename: str, path: str = "") -> None:
 
     with open(path + filename + ".mp3", "wb") as f:
         f.write(audio.content)
+
+def playAudio(audioFile: str) -> None:
+    '''
+    playAudio plays the audio file
+
+    ### Parameters
+    ----------
+    | Name | Type | Description |
+    | :--- | :--- | :--- |
+    | audioFile | str | The path to the audio file to play |
+
+    ----------
+    ### Returns
+    -------
+    None
+    '''
+    # audio = AudioSegment.from_mp3(audioFile)
+    # play(audio)
+    playsound.playsound(audioFile, False)
+    return
