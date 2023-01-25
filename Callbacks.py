@@ -11,8 +11,13 @@ def individualCallback(x: keyboard.KeyboardEvent, wd: str, lang:SUPPORTED_LANGS_
         sleep(0.1)
 
 def individualCallback2(key: str, wd: str, lang:SUPPORTED_LANGS_TYPE_EXP) -> None:
+    print(key, end="\r")
     if(key in LANG_TO_QWERTY_KEYS[lang]):
-        playAudio(f"{wd}\\{key}.mp3")
+        if(key == "ñ"):
+            key = "nn"
+        filename = wd + "\\" + key + ".mp3"
+        playAudio(filename)
+        #playAudio(f"{wd}\\{key}.mp3")
 
 def defineCallbacks(lang: SUPPORTED_LANGS_TYPE_EXP) -> None:
     '''

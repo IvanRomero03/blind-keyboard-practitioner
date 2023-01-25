@@ -49,5 +49,7 @@ def loadLang(lang: SUPPORTED_LANGS_TYPE_EXP) -> None:
     for key in LANG_TO_QWERTY_KEYS[lang]:
         print(f"Downloading {key} audio file")
         src = TextToSpeech(key, lang)
+        if(key == "ñ"):
+            key = "nn"
         DownloadAudioFile(src, key, wd + lang + "\\")
     return

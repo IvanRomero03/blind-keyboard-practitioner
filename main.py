@@ -17,10 +17,13 @@ def main():
     args = parser.parse_args()
     lang = args.lang.lower()
 
-    if lang not in SUPPORTED_LANGS:
-        print(f"Language {lang} not supported")
-        return
-    
+    if lang is None:
+        lang = "es"
+    else:
+        if lang not in SUPPORTED_LANGS:
+            print(f"Language {lang} not supported")
+            return
+
     if not isLangLoaded(lang):
         loadLang(lang)
     
